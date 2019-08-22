@@ -39,7 +39,6 @@ class DiveObjectHelper {
 	Q_PROPERTY(QString suit MEMBER suit CONSTANT)
 	Q_PROPERTY(QStringList cylinderList READ cylinderList CONSTANT)
 	Q_PROPERTY(QStringList cylinders MEMBER cylinders CONSTANT)
-	Q_PROPERTY(QVector<CylinderObjectHelper> cylinderObjects MEMBER cylinderObjects CONSTANT)
 	Q_PROPERTY(int maxcns MEMBER maxcns CONSTANT)
 	Q_PROPERTY(int otu MEMBER otu CONSTANT)
 	Q_PROPERTY(QString sumWeight MEMBER sumWeight CONSTANT)
@@ -78,7 +77,6 @@ public:
 	QString suit;
 	QStringList cylinderList() const;
 	QStringList cylinders;
-	QVector<CylinderObjectHelper> cylinderObjects;
 	int maxcns;
 	int otu;
 	QString sumWeight;
@@ -88,6 +86,21 @@ public:
 	QStringList firstGas;
 	static bool containsText(const struct dive *d, const QString &filterstring, Qt::CaseSensitivity cs, bool includeNotes);
 };
-	Q_DECLARE_METATYPE(DiveObjectHelper)
+
+// This is an extended version of DiveObjectHelper that also keeps track of cylinder data.
+// It is used by grantlee to display structured cylinder data.
+// Note: this grantlee feature is undocumented. If htere turns out to be no users, we migh
+// want to remove this class.
+class DiveObjectHelperGrantlee : public DiveObjectHelper {
+	Q_GADGET
+	Q_PROPERTY(QVector<CylinderObjectHelper> cylinderObjects MEMBER cylinderObjects CONSTANT)
+public:
+	DiveObjectHelperGrantlee();
+	DiveObjectHelperGrantlee(const struct dive *dive);
+	QVector<CylinderObjectHelper> cylinderObjects;
+};
+
+Q_DECLARE_METATYPE(DiveObjectHelper)
+Q_DECLARE_METATYPE(DiveObjectHelperGrantlee)
 
 #endif
