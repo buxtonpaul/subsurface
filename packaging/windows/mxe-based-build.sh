@@ -9,6 +9,9 @@
 # git clone https://github.com/mxe/mxe
 # cd mxe
 #
+# Also ensure you have the required prerequisites for building mxe
+# these can be found @ https://mxe.cc/#requirements
+# 
 # now create a file settings.mk
 #---
 # # This variable controls the number of compilation processes
@@ -27,7 +30,7 @@
 #
 # now you can start the build
 #
-# make libxml2 libxslt libusb1 libzip libssh2 libftdi1 curl qt5 nsis
+# make libxml2 libxslt libusb1 libzip libssh2 libftdi1 curl qt5 nsis libgit2 qtwebkit
 #
 #     (if you intend to build Subsurface without user space FTDI support
 #      you can drop libftdi1 from that list and start this script with
@@ -51,6 +54,22 @@
 #
 # ~/src/win32                  <- build directory
 #
+# To fetch the other dependancies (grantlee, googlemaps, hidapi)
+# cd ~/src
+# git clone https://github.com/steveire/grantlee.git
+# cd grantlee
+# git checkout
+# git pull
+# cd ..
+# git clone https://github.com/vladest/googlemaps.git
+# cd googlemaps
+# git checkout
+# git pull
+# cd ..
+# git clone https://github.com/signal11/hidapi.git
+# cd hidapi/
+# git checkout
+# git pull
 # then start this script from ~/src/win32
 #
 #  cd ~/src/win32

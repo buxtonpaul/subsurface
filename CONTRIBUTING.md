@@ -87,5 +87,5 @@ In order to make reviews simpler and have contributions merged faster in the cod
 [8]: https://subsurface-divelog.org/building/
 [9]: https://gerrit-review.googlesource.com/Documentation/user-signedoffby.html
 [10]: https://subsurface-divelog.org/wp-content/uploads/2011/10/Screenshot-gitk-subsurface-1.png "Example with gitk"
-[11]: https://github.com/Subsurface-divelog/subsurface/blob/master/CodingStyle
+[11]: https://github.com/Subsurface-divelog/subsurface/blob/master/CodingStyle.md
 [12]: https://github.com/Subsurface-divelog/subsurface/blob/master/CONVENTIONS.md
